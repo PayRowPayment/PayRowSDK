@@ -47,7 +47,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.naresh-criticalriver'
+                groupId = 'com.github.PayRowPayment'
                 artifactId = 'PayRowTapToPay'
                 version = '1.0.0'
             }

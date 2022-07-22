@@ -13,6 +13,6 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "SampleApp"
+rootProject.name = "PayRowSDK"
 include ':app'
 include ':PayRowCardReader'
