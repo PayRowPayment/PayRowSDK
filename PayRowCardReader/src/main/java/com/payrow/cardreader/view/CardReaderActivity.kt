@@ -1,5 +1,6 @@
 package com.payrow.cardreader.view
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.nfc.NfcAdapter
@@ -20,6 +21,7 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
 
     private var nfcAdapter: NfcAdapter? = null
 
+    @SuppressLint("MissingSuperCall")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
