@@ -1,17 +1,16 @@
 package com.payrow.cardreader.view
 
-import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.payrow.cardreader.R
 import com.payrow.cardreader.SimpleCardReader
 import com.payrow.cardreader.model.EmvCard
@@ -21,7 +20,6 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
 
     private var nfcAdapter: NfcAdapter? = null
 
-    @SuppressLint("MissingSuperCall")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,7 +46,6 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
             }
         }
     }
-
     override fun cardIsReadyToRead(card: EmvCard) {
         findViewById<TextView>(R.id.tvMessage).visibility = View.GONE
         findViewById<TextView>(R.id.tvCardDetails).text =
