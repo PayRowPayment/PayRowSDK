@@ -22,7 +22,7 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_card_reader)
 
         //NfcAdapter.getDefaultAdapter returns null if devise do not have NFC
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
