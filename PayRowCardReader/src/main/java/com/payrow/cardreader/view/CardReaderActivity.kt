@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.payrow.cardreader.R
 import com.payrow.cardreader.SimpleCardReader
 import com.payrow.cardreader.model.EmvCard
+import kotlinx.android.synthetic.main.activity_card_reader.*
 
 class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReaderCallback,
     NfcAdapter.ReaderCallback {
@@ -47,27 +48,27 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
         }
     }
     override fun cardIsReadyToRead(card: EmvCard) {
-        findViewById<TextView>(R.id.tvMessage).visibility = View.GONE
-        findViewById<TextView>(R.id.tvCardDetails).text =
+        tvMessage.visibility = View.GONE
+        tvCardDetails.text =
             "${card.cardNumber.subSequence(0, 4)} ${
                 card.cardNumber.subSequence(
                     4,
                     8
                 )
             } ${card.cardNumber.subSequence(8, 12)} ${card.cardNumber.subSequence(12, 16)}"
-        findViewById<TextView>(R.id.tvCardMonth).text = card.expireDateMonth
-        findViewById<TextView>(R.id.tvDivider).text = "/"
-        findViewById<TextView>(R.id.tvCardYear).text = card.expireDateYear
+        tvCardMonth.text = card.expireDateMonth
+        tvDivider.text = "/"
+        tvCardYear.text = card.expireDateYear
 //        Toast.makeText(this, info, Toast.LENGTH_LONG).show()
     }
 
     override fun cardMovedTooFastOrLockedNfc() {
-        findViewById<TextView>(R.id.tvMessage).text = "Tap again"
+        tvMessage.text = "Tap again"
 //        Toast.makeText(this, "Tap again", Toast.LENGTH_LONG).show()
     }
 
     override fun errorReadingOrUnsupportedCard() {
-        findViewById<TextView>(R.id.tvMessage).text = "Error / Unsupported"
+        tvMessage.text = "Error / Unsupported"
 //        Toast.makeText(this, "Error / Unsupported", Toast.LENGTH_LONG).show()
     }
 
