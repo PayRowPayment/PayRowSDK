@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/stepHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtInputTitle"
+            android:layout_width="190dp"
+            android:layout_height="120dp"
+            android:layout_weight="2"
+            android:background="@drawable/payrow_logo"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Please Enter Your PIN"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/etEnterPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:height="60dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="PIN"
+        android:letterSpacing=".2"
+        android:textAlignment="gravity"
+        android:textColorHint="#DCC9C9"
+        android:textSize="26sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/keypadLayoutAbsa"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnOne"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_image_1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnTwo"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_2"
+                app:layout_constraintLeft_toRightOf="@+id/btnOne"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnThree"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_3"
+                app:layout_constraintLeft_toRightOf="@+id/btnTwo"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clFirst">
+
+            <ImageView
+                android:id="@+id/btnFour"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_image_4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnFive"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_5"
+                app:layout_constraintLeft_toRightOf="@+id/btnFour"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnSix"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_6"
+                app:layout_constraintLeft_toRightOf="@+id/btnFive"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clSecond">
+
+            <ImageView
+                android:id="@+id/btnSeven"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_image_7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnEight"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_8"
+                app:layout_constraintLeft_toRightOf="@+id/btnSeven"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnNine"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_9"
+                app:layout_constraintLeft_toRightOf="@+id/btnEight"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clThird">
+
+            <ImageView
+                android:id="@+id/btnClear"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/ic_clear_"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnZero"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_0"
+                app:layout_constraintLeft_toRightOf="@+id/btnClear"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnConfirm"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_image_confirm_capital"
+                app:layout_constraintLeft_toRightOf="@+id/btnZero"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <android.widget.Button
+        android:id="@+id/btnCancelPIN"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_weight="0"
+        android:background="@drawable/button_round_light_gray_fill"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
+
+
+</LinearLayout>

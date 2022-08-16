@@ -59,6 +59,8 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
         tvCardMonth.text = card.expireDateMonth
         tvDivider.text = "/"
         tvCardYear.text = card.expireDateYear
+        finish()
+        startActivity(Intent(this,EnterPINActivity::class.java))
 //        Toast.makeText(this, info, Toast.LENGTH_LONG).show()
     }
 

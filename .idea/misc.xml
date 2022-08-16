@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Others/PayRowSDK_/PayRowCardReader/src/main/res/drawable/button_round_light_gray_fill.xml" value="0.154" />
+        <entry key="..\:/Others/PayRowSDK_/PayRowCardReader/src/main/res/drawable/ic_clear_.xml" value="0.154" />
+        <entry key="..\:/Others/PayRowSDK_/PayRowCardReader/src/main/res/drawable/ic_keypad_youcloud_2.xml" value="0.154" />
         <entry key="..\:/Others/PayRowSDK_/PayRowCardReader/src/main/res/layout/activity_card_reader.xml" value="0.24259259259259258" />
+        <entry key="..\:/Others/PayRowSDK_/PayRowCardReader/src/main/res/layout/activity_keypad.xml" value="0.25" />
         <entry key="..\:/Others/PayRowSDK_/PayRowCardReader/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Others/PayRowSDK_/PayRowCardReader/src/main/res/layout/keypad.xml" value="0.25" />
       </map>
     </option>
   </component>
