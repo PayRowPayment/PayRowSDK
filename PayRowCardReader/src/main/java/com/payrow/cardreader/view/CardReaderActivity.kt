@@ -1,5 +1,6 @@
 package com.payrow.cardreader.view
 
+import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.nfc.NfcAdapter
@@ -10,6 +11,7 @@ import android.provider.Settings
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.payrow.cardreader.R
 import com.payrow.cardreader.SimpleCardReader
@@ -60,8 +62,13 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
         tvDivider.text = "/"
         tvCardYear.text = card.expireDateYear
         finish()
+        if(card.cardNumber.startsWith("4")){
+            Toast.makeText(this,"VISA card",Toast.LENGTH_SHORT).show()
+        }
         startActivity(Intent(this,EnterPINActivity::class.java))
+
 //        Toast.makeText(this, info, Toast.LENGTH_LONG).show()
+
     }
 
     override fun cardMovedTooFastOrLockedNfc() {
@@ -93,4 +100,6 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
         super.onPause()
         nfcAdapter?.disableReaderMode(this)
     }
+
+
 }

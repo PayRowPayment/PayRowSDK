@@ -1,5 +1,7 @@
 package com.payrow.cardreader.view
 
+import android.app.Activity
+import android.content.Intent
 import android.media.MediaPlayer
 import android.nfc.NfcAdapter
 import android.os.Bundle
@@ -36,8 +38,12 @@ class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
         btnConfirm.setOnClickListener {
             if (etEnterPin.text.toString().isNotEmpty()) {
                 ring?.start()
-                val bundle1: Bundle = Bundle()
-                bundle1.putString("TYPE", "TAPTOPAY")
+                val intent= Intent()
+                val bundle=Bundle()
+                bundle.putString("CARDNUMBER","12345678")
+                bundle.putString("EXPIRY","22/2022")
+                intent.putExtras(bundle)
+                setResult(Activity.RESULT_OK,intent)
                 finish()
             } else {
                 Toast.makeText(this, "Please enter PIN to proceed", Toast.LENGTH_SHORT).show()

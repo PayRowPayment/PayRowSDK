@@ -39,6 +39,7 @@ dependencies {
     // Coroutines for asynchronous calls (and Deferred’s adapter)
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+    implementation 'androidx.activity:activity-ktx:1.5.1'
 }
 
 afterEvaluate {
