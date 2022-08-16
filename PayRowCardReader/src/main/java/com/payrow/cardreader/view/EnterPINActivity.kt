@@ -10,12 +10,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.payrow.cardreader.R
 import com.payrow.cardreader.SimpleCardReader
+import com.payrow.cardreader.interfaces.GetCardDetails
 import kotlinx.android.synthetic.main.activity_keypad.*
 
 class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
     var stringEnterPIN: String = ""
     private var nfcAdapter: NfcAdapter? = null
     var ring: MediaPlayer? = null
+    val getCardDetails:GetCardDetails?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_keypad)
@@ -44,6 +46,7 @@ class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
                 bundle.putString("EXPIRY","22/2022")
                 intent.putExtras(bundle)
                 setResult(Activity.RESULT_OK,intent)
+                getCardDetails?.showCardDetails("12345678","22/2022")
                 finish()
             } else {
                 Toast.makeText(this, "Please enter PIN to proceed", Toast.LENGTH_SHORT).show()
