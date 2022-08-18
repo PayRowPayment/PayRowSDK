@@ -1,6 +1,5 @@
 package com.payrow.cardreader.view
 
-import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.nfc.NfcAdapter
@@ -8,21 +7,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.MutableLiveData
 import com.payrow.cardreader.MyConstants
 import com.payrow.cardreader.R
-import com.payrow.cardreader.SimpleCardReader
-import com.payrow.cardreader.broadcastreceiver.CardReaderBroadcast
-import com.payrow.cardreader.interfaces.GetCardDetails
 import kotlinx.android.synthetic.main.activity_keypad.*
 
 class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
     var stringEnterPIN: String = ""
     private var nfcAdapter: NfcAdapter? = null
     var ring: MediaPlayer? = null
-    val getCardDetails:GetCardDetails?=null
-    var cardNumber=MutableLiveData<String>()
-val cardReaderBroadcast=CardReaderBroadcast()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_keypad)
@@ -50,6 +43,9 @@ val cardReaderBroadcast=CardReaderBroadcast()
                 val myBundle=intent.extras
                 myBundle?.get(MyConstants.CARD_NUMBER)
                 myBundle?.get(MyConstants.CARD_EXPIRY)
+                if (myBundle != null) {
+                    myIntent.putExtras(myBundle)
+                }
                 sendBroadcast(myIntent)
                 finish()
             } else {
