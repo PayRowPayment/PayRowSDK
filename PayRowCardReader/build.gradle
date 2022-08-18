@@ -40,6 +40,13 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
     implementation 'androidx.activity:activity-ktx:1.5.1'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'androidx.lifecycle:lifecycle-process:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-service:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1'
+
 }
 
 afterEvaluate {
@@ -50,7 +57,7 @@ afterEvaluate {
 
                 groupId = 'com.github.PayRowPayment'
                 artifactId = 'PayRowTapToPay'
-                version = '1.1.8'
+                version = '1.1.9'
             }
         }
     }

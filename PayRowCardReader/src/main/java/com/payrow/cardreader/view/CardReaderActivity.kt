@@ -1,6 +1,5 @@
 package com.payrow.cardreader.view
 
-import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.nfc.NfcAdapter
@@ -9,10 +8,9 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.payrow.cardreader.MyConstants
 import com.payrow.cardreader.R
 import com.payrow.cardreader.SimpleCardReader
 import com.payrow.cardreader.model.EmvCard
@@ -49,6 +47,7 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
             }
         }
     }
+
     override fun cardIsReadyToRead(card: EmvCard) {
         tvMessage.visibility = View.GONE
         tvCardDetails.text =
@@ -61,12 +60,18 @@ class CardReaderActivity : AppCompatActivity(), SimpleCardReader.SimpleCardReade
         tvCardMonth.text = card.expireDateMonth
         tvDivider.text = "/"
         tvCardYear.text = card.expireDateYear
-        finish()
-        if(card.cardNumber.startsWith("4")){
-            Toast.makeText(this,"VISA card",Toast.LENGTH_SHORT).show()
-        }
-        startActivity(Intent(this,EnterPINActivity::class.java))
 
+        if (card.cardNumber.startsWith("4")) {
+            Toast.makeText(this, "VISA card", Toast.LENGTH_SHORT).show()
+        }
+        val myBundle = Bundle()
+        myBundle.putString(MyConstants.CARD_NUMBER, card.cardNumber)
+        myBundle.putString(
+            MyConstants.CARD_EXPIRY,
+            card.expireDateMonth + "/" + card.expireDateYear
+        )
+        startActivity(Intent(this, EnterPINActivity::class.java).putExtras(myBundle))
+        finish()
 //        Toast.makeText(this, info, Toast.LENGTH_LONG).show()
 
     }

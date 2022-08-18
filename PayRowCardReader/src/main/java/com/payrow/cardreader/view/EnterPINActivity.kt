@@ -8,8 +8,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
+import com.payrow.cardreader.MyConstants
 import com.payrow.cardreader.R
 import com.payrow.cardreader.SimpleCardReader
+import com.payrow.cardreader.broadcastreceiver.CardReaderBroadcast
 import com.payrow.cardreader.interfaces.GetCardDetails
 import kotlinx.android.synthetic.main.activity_keypad.*
 
@@ -18,6 +21,8 @@ class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
     private var nfcAdapter: NfcAdapter? = null
     var ring: MediaPlayer? = null
     val getCardDetails:GetCardDetails?=null
+    var cardNumber=MutableLiveData<String>()
+val cardReaderBroadcast=CardReaderBroadcast()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_keypad)
@@ -40,14 +45,12 @@ class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
         btnConfirm.setOnClickListener {
             if (etEnterPin.text.toString().isNotEmpty()) {
                 ring?.start()
-                val intent= Intent()
-                val bundle=Bundle()
-                bundle.putString("CARDNUMBER","12345678")
-                bundle.putString("EXPIRY","22/2022")
-                intent.putExtras(bundle)
                // setResult(Activity.RESULT_OK,intent)
-                getCardDetails?.showCardDetails("12345678","22/2022")
-                setCardDetails("1234567")
+                val myIntent=Intent("com.example.payrowmobile")
+                val myBundle=intent.extras
+                myBundle?.get(MyConstants.CARD_NUMBER)
+                myBundle?.get(MyConstants.CARD_EXPIRY)
+                sendBroadcast(myIntent)
                 finish()
             } else {
                 Toast.makeText(this, "Please enter PIN to proceed", Toast.LENGTH_SHORT).show()
@@ -117,10 +120,7 @@ class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
 
         }
     }
-    companion object cardNumber {
-        fun setCardDetails(cardNumber:String):String
-        {
-            return cardNumber
-        }
+    companion object cardDetails {
+        lateinit var cardNo:String
     }
 }
