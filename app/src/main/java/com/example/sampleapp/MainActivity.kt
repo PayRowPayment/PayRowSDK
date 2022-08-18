@@ -1,4 +1,4 @@
-//package com.example.sampleapp
+package com.example.sampleapp
 //
 //import android.app.Activity
 //import android.content.Intent
