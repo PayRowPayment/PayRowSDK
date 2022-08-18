@@ -45,8 +45,9 @@ class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
                 bundle.putString("CARDNUMBER","12345678")
                 bundle.putString("EXPIRY","22/2022")
                 intent.putExtras(bundle)
-                setResult(Activity.RESULT_OK,intent)
+               // setResult(Activity.RESULT_OK,intent)
                 getCardDetails?.showCardDetails("12345678","22/2022")
+                setCardDetails("1234567")
                 finish()
             } else {
                 Toast.makeText(this, "Please enter PIN to proceed", Toast.LENGTH_SHORT).show()
@@ -114,6 +115,12 @@ class EnterPINActivity : AppCompatActivity(), View.OnClickListener {
                 etEnterPin.setText("")
             }
 
+        }
+    }
+    companion object cardNumber {
+        fun setCardDetails(cardNumber:String):String
+        {
+            return cardNumber
         }
     }
 }
